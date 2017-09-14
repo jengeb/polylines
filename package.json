@@ -41,7 +41,7 @@
     "pelias-config": "2.12.0",
     "pelias-dbclient": "2.2.2",
     "pelias-logger": "0.2.0",
-    "pelias-model": "5.0.1",
+    "pelias-model": "pelias/model#add-ocean-and-marine-area",
     "pelias-wof-admin-lookup": "pelias/wof-admin-lookup#refactor-for-layer-fallbacks",
     "polyline": "^0.2.0",
     "split": "^1.0.0",
