@@ -8,6 +8,9 @@ var split = require('split'),
     document = require('./document'),
     adminLookup = require('pelias-wof-admin-lookup').create;
 
+const adminLayers = ['neighbourhood', 'borough', 'locality', 'localadmin',
+  'county', 'macrocounty', 'region', 'macroregion', 'dependency', 'country'];
+
 function pipeline( streamIn, streamOut ){
   return streamIn
     .pipe( split() )
@@ -15,7 +18,7 @@ function pipeline( streamIn, streamOut ){
     .pipe( unwrap() )
     .pipe( centroid() )
     .pipe( document( 'openstreetmap', 'street', 'polyline' ) )
-    .pipe( adminLookup() )
+    .pipe( adminLookup(adminLayers) )
     .pipe( model.createDocumentMapperStream() )
     .pipe( streamOut );
 }
